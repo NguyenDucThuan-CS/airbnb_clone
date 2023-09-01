@@ -1,7 +1,7 @@
 import './globals.css'
-import type { Metadata } from 'next'
-
-
+import Navbar from './components/navbar/Navbar'
+import ClientOnly from './components/ClientOnly'
+import Modal from './components/modals/Modal'
 import { Nunito } from "next/font/google"
 
 export const metadata =  {
@@ -25,7 +25,11 @@ export default function RootLayout({
     <html lang="en">
     
       <body>
-        <Navbar />
+        <ClientOnly>
+          <Modal title = "Hello world"   isOpen = {true}/>
+          <Navbar />
+        </ClientOnly>
+       
         {children}
       </body>
     </html>
